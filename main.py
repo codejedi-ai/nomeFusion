@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import discord
 load_dotenv()
 
-YOUR_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+YOUR_BOT_TOKEN = os.getenv("DISCORD_TOKEN")
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-1"
 headers = {"Authorization": "Bearer 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"}
 
@@ -46,7 +46,7 @@ async def on_message(message):
             from PIL import Image
             image = Image.open(io.BytesIO(image_bytes))
             image_path = "./tmp/image.png"
-            image.save(file_path)
+            image.save(image_path)
 
             try:
                 # Open the image file
