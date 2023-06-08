@@ -10,7 +10,7 @@ COPY main.py .
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 COPY script.sh .
-COPY .env .
+COPY .env .env
 # Install dependencies
 RUN python -m venv venv
 RUN . venv/bin/activate && pip install -r requirements.txt
