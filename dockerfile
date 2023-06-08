@@ -10,14 +10,11 @@ COPY main.py .
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 COPY script.sh .
+COPY .env .
 # Install dependencies
 RUN python -m venv venv
 RUN . venv/bin/activate && pip install -r requirements.txt
 
-# Set the Discord token as a build argument
-ARG DISCORD_TOKEN
-# Set the environment variable using the build argument
-ENV DISCORD_TOKEN=${DISCORD_TOKEN}
 
 # Run the main.py script
 CMD ["/bin/bash", "script.sh"]
